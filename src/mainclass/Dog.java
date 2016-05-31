@@ -10,12 +10,17 @@ package mainclass;
  * @author Kousa
  */
 public class Dog {
+    String nimi;
+    String lausahdus;
     
-    Doge() {
-        
+    
+    public Dog(String input1) {
+        nimi = input1;
+        System.out.println("Hei, nimeni on " + nimi + "!");
     }
     
-    public void speak(){
-        System.out.println("Vuff vuff");
+    public void speak(String input2){
+        lausahdus = input2;
+        System.out.println(lausahdus);
     }
 }
