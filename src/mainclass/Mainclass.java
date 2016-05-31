@@ -25,25 +25,35 @@ public class Mainclass {
         
         String name = null;
         String hellowords = null;
+        String testword = null;
         
         Scanner scan = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        System.out.print("Anna koiran nimi: ");
+//        System.out.print("Anna koiran nimi: ");
+//        try {
+//            name = br.readLine();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//                
+//        System.out.print("Anna koiralle lausahdus: ");
+//        try {
+//            hellowords = br.readLine();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        Dog d1 = new Dog("Kalle", "Moikkuli");
+        
+        System.out.print("Anna koiralle lelu: ");
         try {
-            name = br.readLine();
-        } catch (IOException ex) {
-            Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                
-        System.out.print("Anna koiralle lausahdus: ");
-        try {
-            hellowords = br.readLine();
+            testword = br.readLine();
         } catch (IOException ex) {
             Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Dog d1 = new Dog(name, hellowords);
+        d1.speak(testword);
         
         
     }

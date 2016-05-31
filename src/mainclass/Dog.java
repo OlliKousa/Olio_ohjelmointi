@@ -5,6 +5,8 @@
  */
 package mainclass;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Kousa
@@ -12,6 +14,7 @@ package mainclass;
 public class Dog {
     String name = "Doge";
     String dogeword = "Much wow!";
+
     
     
     
@@ -31,8 +34,31 @@ public class Dog {
     }
 
      
-//    public void speak(String input2){
-//        dogeword = input2;
-//        
-//    }
+    public void speak(String input3){
+        
+        String temp;
+        
+        Scanner in = new Scanner(input3);
+        
+        while(in.hasNext()){
+            if(in.hasNextBoolean()){
+                temp = in.next();
+                System.out.println("Se oli boolean:" + temp + ".");
+
+            }else if(in.hasNextInt()){
+                temp = in.next();
+                System.out.println("Se oli intti." + temp + ".");
+
+            }else if(in.hasNext()){
+                temp = in.next();
+                System.out.println("Jotain siellä on, mutta intti tai boolean se ei ollut:" + temp + ".");
+            } else {
+                System.out.println("Tyhjää täynnä.");
+            }
+        }
+        
+        
+        
+        
+    }
 }
