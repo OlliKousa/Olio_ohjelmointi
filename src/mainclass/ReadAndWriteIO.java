@@ -6,7 +6,10 @@
 package mainclass;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -15,24 +18,43 @@ import java.io.IOException;
  */
 public class ReadAndWriteIO {
     
-    private String filename = "input.txt";
+    private String inputFileName = "input.txt";
+    private String outputFileName = "output.txt";
     
-    public ReadAndWriteIO (String s){
-        filename = s;
+    public ReadAndWriteIO (){
+//        inputFileName = s;
     }
     
-    public void readText() throws IOException{
-        BufferedReader in = new BufferedReader (new FileReader (filename));
-        String s = null;
+    public void readAndWrite(String input, String output) throws FileNotFoundException, IOException{
+        inputFileName = input;
+        outputFileName = output;
         
+        BufferedReader in = new BufferedReader (new FileReader (inputFileName));
+        BufferedWriter out = new BufferedWriter (new FileWriter(outputFileName));
+        String s = null;
         while(true){
-            ;
             if((s = in.readLine()) == null){
                 break;
             }
+            
             System.out.println(s);
+            
+            if (s.length() < 30 && s.trim().length() != 0 && s.contains("v")) {
+                out.write(s);
+                out.write("\n");
+            }
         }
+        out.close();
+        in.close(); 
         
-        in.close();
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
 }

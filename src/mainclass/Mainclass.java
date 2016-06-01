@@ -21,16 +21,14 @@ public class Mainclass {
     
     public static void main(String[] args) throws IOException {
         
-        String filename = "input.txt";
-        System.out.println(System.getProperty("user.dir"));
+//        String filename = "input.txt";
+//        System.out.println(System.getProperty("user.dir"));
         
         BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
         
-        ReadAndWriteIO ioop = new ReadAndWriteIO(filename);
+        ReadAndWriteIO ioop = new ReadAndWriteIO();
         
-        
-        ioop.readText();
-        
+        ioop.readAndWrite("input.txt", "output.txt");
     }
     
 }
