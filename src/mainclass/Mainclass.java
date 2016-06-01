@@ -1,16 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* Olli Kousa
+* 0438471
+*/
+
+
 package mainclass;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -18,22 +16,49 @@ import java.util.logging.Logger;
  */
 public class Mainclass {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
     
         BottleDispenser bd = new BottleDispenser();
     
-        for(int i = 0 ; i < 1 ; i++)
-            bd.addMoney();
+        Scanner scan = new Scanner(System.in);
         
-        for(int i = 0 ; i < 7 ; i++)
-            bd.buyBottle();
+        int choice; 
         
-        bd.returnMoney();
+        while(true){
+            System.out.println("\n*** LIMSA-AUTOMAATTI ***\n" +
+                                "1) Lisää rahaa koneeseen\n" +
+                                "2) Osta pullo\n" +
+                                "3) Ota rahat ulos\n" +
+                                "4) Listaa koneessa olevat pullot\n" +
+                                "0) Lopeta");
+            System.out.print("Valintasi: ");
+            choice = scan.nextInt();
+            
+            switch(choice){
+                case 1:
+                    bd.addMoney();
+                    break;
+                case 2:
+                    bd.buyBottle();
+                    break;
+                case 3:
+                    bd.returnMoney();
+                    break;
+                case 4:
+                    bd.listBottles();
+                    break;
+                case 0:
+                    System.exit(0);
+                default:
+                    System.out.println("Valitsit väärin");
+                    break;
+            }
+        }
         
-        System.out.println("Kiittimoi.");
+        
+        
+        
         
         
     }
