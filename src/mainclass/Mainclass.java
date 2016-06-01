@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Olli Kousa
+ * 0438471
+ * 1.6.2016
  */
 package mainclass;
 
@@ -18,36 +18,18 @@ import java.util.logging.Logger;
  */
 public class Mainclass {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) throws IOException {
         
-        String name = null;
-        String hellowords = null;
-        String testword = null;
+        String filename = "input.txt";
+        System.out.println(System.getProperty("user.dir"));
         
-        Scanner scan = new Scanner(System.in);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
         
-        System.out.print("Anna koiralle nimi: ");
-        try {
-            name = br.readLine();
-        } catch (IOException ex) {
-            Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Dog d1 = new Dog(name);
+        ReadAndWriteIO ioop = new ReadAndWriteIO(filename);
         
-        System.out.print("Mitä koira sanoo: ");
-        try {
-            testword = br.readLine();
-        } catch (IOException ex) {
-            Logger.getLogger(Mainclass.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-        d1.speak(testword);
-        
+        ioop.readText();
         
     }
     
