@@ -18,40 +18,41 @@ public class Dog {
     
     
     
-    public Dog(String input1, String input2) {
+    public Dog(String input1) {
         
         if(!input1.trim().isEmpty()){
             name = input1;
         }
         
-        if (!input2.trim().isEmpty()){
-            dogeword = input2;
-        }
         
-        System.out.print(dogeword + ": ");
-        System.out.println(name);
+        
+        System.out.println("Hei, nimeni on " + name);
         
     }
 
      
-    public void speak(String input3){
+    public void speak(String input2){
+        
+        if (!input2.trim().isEmpty()){
+            dogeword = input2;
+        }
         
         String temp;
         
-        Scanner in = new Scanner(input3);
+        Scanner in = new Scanner(dogeword);
         
         while(in.hasNext()){
             if(in.hasNextBoolean()){
                 temp = in.next();
-                System.out.println("Se oli boolean:" + temp + ".");
+                System.out.println("Such boolean: " + temp);
 
             }else if(in.hasNextInt()){
                 temp = in.next();
-                System.out.println("Se oli intti." + temp + ".");
+                System.out.println("Such integer: " + temp);
 
             }else if(in.hasNext()){
                 temp = in.next();
-                System.out.println("Jotain siellä on, mutta intti tai boolean se ei ollut:" + temp + ".");
+                System.out.println(temp);
             } else {
                 System.out.println("Tyhjää täynnä.");
             }
