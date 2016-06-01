@@ -11,6 +11,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 /**
  *
@@ -29,31 +34,41 @@ public class ReadAndWriteIO {
         inputFileName = input;
         outputFileName = output;
         
-        BufferedReader in = new BufferedReader (new FileReader (inputFileName));
+        ZipFile zipFile = new ZipFile("zipinput.zip");
+        Enumeration e = zipFile.entries();
+        ZipEntry zipEntry = (ZipEntry) e.nextElement();
+        InputStream stream = zipFile.getInputStream(zipEntry);
+        
+        
+        
+        BufferedReader in = new BufferedReader(new InputStreamReader(stream));
         BufferedWriter out = new BufferedWriter (new FileWriter(outputFileName));
+        
+        
+        
         String s = null;
-        while(true){
-            if((s = in.readLine()) == null){
-                break;
-            }
-            
-            System.out.println(s);
-            
-            if (s.length() < 30 && s.trim().length() != 0 && s.contains("v")) {
-                out.write(s);
-                out.write("\n");
-            }
-        }
+        
+        s = convertStreamToString(stream);
+        System.out.println(s);
+        
+//        while(true){
+//            if((s = in.readLine()) == null){
+//                break;
+//            }
+//            
+//            System.out.println(s);
+//            
+//        }
+        
+        stream.close();
+        zipFile.close();
         out.close();
-        in.close(); 
-        
-        
-        
-        
-        
-        
-        
-        
+        in.close();
+    }
+    
+    static String convertStreamToString(java.io.InputStream stream){
+            java.util.Scanner s = new java.util.Scanner(stream).useDelimiter("\\A");
+            return s.hasNext() ? s.next() : "";
     }
     
     
